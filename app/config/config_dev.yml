@@ -4,6 +4,7 @@ imports:
 framework:
     router:   { resource: "%kernel.root_dir%/config/routing_dev.yml" }
     profiler: { only_exceptions: false }
+    validation: { enable_annotations: true }
 
 web_profiler:
     toolbar: true
@@ -21,6 +22,12 @@ monolog:
 
 assetic:
     use_controller: true
+    
+services:
+    my.listener:
+        class: First\GodBundle\Listener\AddCategoryByUser
+        tags:
+            - { name: doctrine.event_listener, event: postPersist }
 
 #swiftmailer:
 #    delivery_address: me@example.com

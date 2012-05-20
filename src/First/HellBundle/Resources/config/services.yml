@@ -1,0 +1,7 @@
+parameters:
+#    first_hell.example.class: First\HellBundle\Example
+
+services:
+#    first_hell.example:
+#        class: %first_hell.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

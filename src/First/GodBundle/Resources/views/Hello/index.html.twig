@@ -1,0 +1,43 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+
+<form action="{{ path('FirstGodBundle_new') }}" method="post" {{ form_enctype(form) }} >
+ {{ form_errors(form) }}
+  <!-- whole widgets-->
+  {{ form_widget(form) }}
+  <!-- specify some widgets-->
+ {{ form_row(form.name, {'attr':{'class':'name_field'} }) }}
+  {{ form_rest(form)}}
+  <!-- access widget value-->
+  {{ form.vars.value.name }}
+  {{ form.name.vars.full_name }}
+  {{ form.name.vars.id }}
+
+  <div>
+    {{ form_label(form.name,'我草你嘛黑啊') }}
+    {{ form_errors(form.name) }}
+    {{ form_widget(form.name) }}
+   </div>
+   <input type="submit" />
+  </form>
+
+
+{% for i in 0..10 %}
+  <div class="{{ cycle(['odd','even'],i) }}">
+   haha
+  </div>
+{% endfor %}
+
+{% for user in users %}
+  <li>NO.{{ user }}</li>
+    {% else %}
+  <li>no user available</li>
+{% endfor %}
+
+{{ parent() }}
+
+{{ google_consumer_code }}
+
+{% endblock %}
+
+

@@ -20,6 +20,11 @@ framework:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+    globals:
+      google_consumer_code: ninja!
+    form:
+      resource:
+        - 'FirstGodBundle:Form:fields.html.twig'
 
 # Assetic Configuration
 assetic:
@@ -56,3 +61,9 @@ swiftmailer:
     username:  %mailer_user%
     password:  %mailer_password%
     spool:     { type: memory }
+    
+sensio_framework_extra:
+    router:  { annotations: true }
+    request: { converters: true }
+    view:    { annotations: true }
+    cache:   { annotations: true }

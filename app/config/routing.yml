@@ -1,3 +1,15 @@
+FirstHellBundle:
+    resource: "@FirstHellBundle/Resources/config/routing.yml"
+    prefix:   /
+
+#FirstGodBundle:
+#    resource: "@FirstGodBundle/Resources/config/routing.yml"
+#    prefix:   /
+    
+Hello:
+    resource: "@FirstGodBundle/Controller/HelloController.php"
+    type:     annotation
+
 # Internal routing configuration to handle ESI
 #_internal:
 #    resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
