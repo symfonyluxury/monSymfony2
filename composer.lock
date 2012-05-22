@@ -1,5 +1,5 @@
 {
-    "hash": "64ef8edd92e0a1c3c3afc3d0c7f32697",
+    "hash": "c2727b5e1bcb96db190724685281a3c5",
     "packages": [
         {
             "package": "doctrine/common",
@@ -46,6 +46,11 @@
             "version": "1.1.0"
         },
         {
+            "package": "knplabs/knp-oauth-bundle",
+            "version": "dev-master",
+            "source-reference": "307baaa564ed41a9fe666e358ec6d4dcf0294ccc"
+        },
+        {
             "package": "kriswallsmith/assetic",
             "version": "dev-master",
             "source-reference": "1a1b5f963db158a1065343fab617d25ce351a2dc"
@@ -58,8 +63,18 @@
             "alias-version": "1.1.9999999.9999999-dev"
         },
         {
+            "package": "kriswallsmith/buzz",
+            "version": "dev-master",
+            "source-reference": "1bab480dfdb3e4687dcb60a76eaed5b1e59a20cb"
+        },
+        {
             "package": "monolog/monolog",
             "version": "1.1.0"
+        },
+        {
+            "package": "sensio/buzz-bundle",
+            "version": "dev-master",
+            "source-reference": "c8c0ef65768fddfa28e41cb513b0b9b4dec04ee6"
         },
         {
             "package": "sensio/distribution-bundle",
@@ -101,19 +116,12 @@
         {
             "package": "symfony/swiftmailer-bridge",
             "version": "dev-master",
-            "source-reference": "408eb09f5799d393ddc3d916ec3667857fb3a20d",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
-        },
-        {
-            "package": "symfony/swiftmailer-bridge",
-            "version": "dev-master",
             "source-reference": "408eb09f5799d393ddc3d916ec3667857fb3a20d"
         },
         {
             "package": "symfony/swiftmailer-bridge",
             "version": "dev-master",
-            "source-reference": "463536de4b149e1560bd764582cbf50dc9936ebd",
+            "source-reference": "408eb09f5799d393ddc3d916ec3667857fb3a20d",
             "alias-pretty-version": "2.1.x-dev",
             "alias-version": "2.1.9999999.9999999-dev"
         },
@@ -125,26 +133,26 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "18132c18b41637a05a3a13990651a4054cf0ce59",
+            "source-reference": "335d4eab86362a249e4c58d28320b7b843773492"
+        },
+        {
+            "package": "symfony/symfony",
+            "version": "dev-master",
+            "source-reference": "335d4eab86362a249e4c58d28320b7b843773492",
             "alias-pretty-version": "2.1.x-dev",
             "alias-version": "2.1.9999999.9999999-dev"
         },
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "1407f112fcfb6565e69b8040c7ceaae810a8acb3"
-        },
-        {
-            "package": "symfony/symfony",
-            "version": "dev-master",
-            "source-reference": "1407f112fcfb6565e69b8040c7ceaae810a8acb3",
+            "source-reference": "18132c18b41637a05a3a13990651a4054cf0ce59",
             "alias-pretty-version": "2.1.x-dev",
             "alias-version": "2.1.9999999.9999999-dev"
         },
         {
             "package": "twig/extensions",
             "version": "dev-master",
-            "source-reference": "446d870272cd87a720e95242eade38a2acf56eaa"
+            "source-reference": "feb6d3f10c411e2631997c0a905aa581c80305c1"
         },
         {
             "package": "twig/twig",
@@ -156,14 +164,19 @@
         {
             "package": "twig/twig",
             "version": "dev-master",
-            "source-reference": "e28663efd83d76ee36bf9e8a790f75bd880abbf2"
+            "source-reference": "0fa26d642994630b2ec19c090149fa56ce84c789",
+            "alias-pretty-version": "1.8.x-dev",
+            "alias-version": "1.8.9999999.9999999-dev"
         },
         {
             "package": "twig/twig",
             "version": "dev-master",
-            "source-reference": "875fa010ce597edf97c04ce6490be950068e9372",
-            "alias-pretty-version": "1.8.x-dev",
-            "alias-version": "1.8.9999999.9999999-dev"
+            "source-reference": "0fa26d642994630b2ec19c090149fa56ce84c789"
+        },
+        {
+            "package": "zend/gdata",
+            "version": "dev-master",
+            "source-reference": "827dc8696f1e5b70a4c507355877cdbab60fb3fa"
         }
     ],
     "packages-dev": null,

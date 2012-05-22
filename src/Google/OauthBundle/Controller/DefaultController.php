@@ -9,10 +9,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class DefaultController extends Controller
 {
 
-          const domain = 'testGoogle.au';
+          const domain = 'teamlogin.com';
 
-          protected $email = 'chen.li@teamlogin.com';
-          protected $password = '123456qqq';
+          protected $email = 'gotcha@teamlogin.com';
+          protected $password = '12345694';
           protected $username = 'cp3';
           protected $givenname = 'nima';
           protected $familyname = 'heiA';
@@ -34,8 +34,17 @@ class DefaultController extends Controller
 //                    $proxiedHttpClient = new \Zend_Http_Client( 'http://www.google.com:443', $config );
 
                     $client = \Zend_Gdata_ClientLogin::getHttpClient( $this->email, $this->password, \Zend_Gdata_Gapps::AUTH_SERVICE_NAME );
-//                    $service = new \Zend_Gdata_Gapps( $client, self::domain );
+                    $gdata = new \Zend_Gdata_Gapps( $client, self::domain );
 //                    $service->createUser( $this->username, $this->givenname, $this->familyname, $this->password_c, $passwordHashFunction = null, $quota = null );
+                    $users = $gdata->getUserFeed();
+
+                    foreach ($users as $user)
+                    {
+                              echo "  * " . $user->login->username . ' (' . $user->name->givenName .
+                              ' ' . $user->name->familyName . ")\n";
+                    }
+
+                    var_dump($gdata->isOwner('gotcha@teamlogin.com', 'hr'));
 
                     return array('name' => $name);
           }

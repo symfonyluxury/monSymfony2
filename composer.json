@@ -19,7 +19,8 @@
         "jms/security-extra-bundle": "1.1.*",
         "jms/di-extra-bundle": "1.0.*",
         "doctrine/data-fixtures": "*",
-        "zend/gdata": "*"
+        "zend/gdata": "*",
+        "knplabs/knp-oauth-bundle": "*"
     },
     "scripts": {
         "post-install-cmd": [

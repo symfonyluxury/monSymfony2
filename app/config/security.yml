@@ -11,6 +11,11 @@ security:
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
+        main:
+            oauth_entity:
+                class: Google\OauthBundle\Entity:User
+                property: name
+          
         in_memory:
             memory:
                 users:
@@ -27,13 +32,26 @@ security:
             security: false
 
         secured_area:
-            pattern:    ^/demo/secured/
+            pattern:    ^/secured/
+            oauth:
+                oauth_provider:    google
+                authorization_url:  ~
+                access_token_url:  ~
+                infos_url:          ~
+                username_path:     user.login
+                client_id:          66772032914.apps.googleusercontent.com
+                secret:            6ITw8qAL--zt34nzAPodEAgW
+                scope:             userinfo.profile
+                check_path:        /secured/login_check
+                login_path:        /secured/login
+                failure_path:      /
+                
             form_login:
                 check_path: /demo/secured/login_check
                 login_path: /demo/secured/login
             logout:
-                path:   /demo/secured/logout
-                target: /demo/
+                path:   /secured/logout
+                target: /
             #anonymous: ~
             #http_basic:
             #    realm: "Secured Demo Area"
