@@ -1,0 +1,17 @@
+parameters:
+    google_oauth.example.class:   Google\OauthBundle\Example
+    doctrine_orm_entity_manager:  Doctrine\ORM\EntityManager
+    
+services:
+#    google_oauth.example:
+#        class:  %google_oauth.example.class%
+#        arguments:  [@service_id, plain_value, %parameter_name%]
+
+#    entity_manager:
+#        class:        Doctrine\ORM\EntityManager
+
+    google.oauth.openid_user_manager:
+        class:        Google\OauthBundle\Entity\OpenIdUserManager
+        arguments:    [@doctrine.orm.default_entity_manager, @fp_openid.identity_manager]
+        
+        

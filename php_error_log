@@ -1,0 +1,2 @@
+[29-May-2012 09:23:44] PHP Fatal error:  Declaration of Google\OauthBundle\Entity\OpenIdIdentity::setUser() must be compatible with that of Fp\OpenIdBundle\Model\UserIdentityInterface::setUser() in C:\wamp\www\monSymfony2\src\Google\OauthBundle\Entity\OpenIdIdentity.php on line 15
+[29-May-2012 09:23:47] PHP Fatal error:  Declaration of Google\OauthBundle\Entity\OpenIdIdentity::setUser() must be compatible with that of Fp\OpenIdBundle\Model\UserIdentityInterface::setUser() in C:\wamp\www\monSymfony2\src\Google\OauthBundle\Entity\OpenIdIdentity.php on line 15

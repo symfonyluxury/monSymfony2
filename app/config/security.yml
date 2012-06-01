@@ -4,58 +4,88 @@ jms_security_extra:
 
 security:
     encoders:
-        Symfony\Component\Security\Core\User\User: plaintext
+#        Symfony\Component\Security\Core\User\User: plaintext
+        Google\OauthBundle\Entity\User: md5
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
-        main:
-            oauth_entity:
-                class: Google\OauthBundle\Entity:User
-                property: name
+#        secured_area:
+#            oauth_entity:
+#                class: GoogleOauthBundle:User
+#                property: name
+         administrators:
+             entity: {class: GoogleOauthBundle:User, property: username}
+         openid_user_manager:
+             id:  google.oauth.openid_user_manager
           
-        in_memory:
-            memory:
-                users:
-                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
-                    admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
+#        in_memory:
+#            memory:
+#                users:
+#                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
+#                    admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }             
 
     firewalls:
-        dev:
-            pattern:  ^/(_(profiler|wdt)|css|images|js)/
-            security: false
+        main:
+            pattern: ^/
+            logout:       true
+            anonymous:    true
+            
+            fp_openid: 
+                create_user_if_not_exists: true
+                required_attributes:          [namePerson/friendly,contact/email,namePerson,birthDate,pref/language,contact/country/home,person/gender]
+                optional_attributes:          []
+                # options come with abstract listener
+                check_path:                   /login_check
+                default_target_path:          /hello/wtf
+                provider: openid_user_manager
 
-        login:
-            pattern:  ^/demo/secured/login$
-            security: false
 
-        secured_area:
-            pattern:    ^/secured/
-            oauth:
-                oauth_provider:    google
-                authorization_url:  ~
-                access_token_url:  ~
-                infos_url:          ~
-                username_path:     user.login
-                client_id:          66772032914.apps.googleusercontent.com
-                secret:            6ITw8qAL--zt34nzAPodEAgW
-                scope:             userinfo.profile
-                check_path:        /secured/login_check
-                login_path:        /secured/login
-                failure_path:      /
-                
-            form_login:
-                check_path: /demo/secured/login_check
-                login_path: /demo/secured/login
-            logout:
-                path:   /secured/logout
-                target: /
+           
+#        dev:
+#            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+#            security: false
+#
+#        login:
+#            pattern:  ^/demo/secured/login$
+#            security: false
+#
+#        secured_area:
+##            pattern:    ^/secured/
+##            oauth:
+##                oauth_provider:    google
+##                authorization_url:  https://accounts.google.com/o/oauth2/auth
+##                access_token_url:  https://accounts.google.com/o/oauth2/token
+##                infos_url:          https://www.googleapis.com/oauth2/v1/userinfo
+##                username_path:    name
+##                client_id:          66772032914.apps.googleusercontent.com
+##                secret:            6ITw8qAL--zt34nzAPodEAgW
+##                scope:             userinfo.profile
+##                check_path:        /secured/login_check
+##                login_path:        /secured/login
+##                failure_path:      /
+#                
+#            pattern:    ^/demo/secured/
+#            
+#            form_login:
+#                check_path: /demo/secured/login_check
+#                login_path: /demo/secured/login
+#            logout:
+#                path:   /secured/logout
+#                target: /
             #anonymous: ~
             #http_basic:
             #    realm: "Secured Demo Area"
 
     access_control:
+        - { path: ^/login_openid$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/hello, role: IS_AUTHENTICATED_OPENID }
+        
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
         #- { path: ^/_internal/secure, roles: IS_AUTHENTICATED_ANONYMOUSLY, ip: 127.0.0.1 }
+        
+#fp_open_id:
+#    db_driver: orm
+#    identity_class: Google\OauthBundle\Entity\OpenIdIdentity

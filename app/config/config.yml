@@ -1,6 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+#    - { resource: @GoogleOauthBundle/Resources/config/services.yml }
 
 framework:
     #esi:             ~
@@ -56,3 +57,7 @@ swiftmailer:
     username:  %mailer_user%
     password:  %mailer_password%
     spool:     { type: memory }
+
+fp_open_id:
+    db_driver: orm
+    identity_class: Google\OauthBundle\Entity\OpenIdIdentity
